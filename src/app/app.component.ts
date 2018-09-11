@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
     console.log(this.message);
     const localhostParentURL = 'http://localhost:4201/';
     // const parentURL = 'http://mfp.primericaonline.com:9080/priapp/index.html#/';
-    const parentURL = 'https://dev.primericaonline.com';
+    const parentURL = 'https://dev.primericaonline.com/priapp/#/turboApps';
     parent.postMessage(
     {
       messageFromChild: this.message
