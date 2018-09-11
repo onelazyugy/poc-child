@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'childapp';
+  title = 'child app';
+  message = '';
+
+  submit = () => {
+    console.log(this.message);
+    parent.postMessage(
+    {
+      messageFromParent: this.message
+    },
+    'http://localhost:4201/');
+  }
 }
