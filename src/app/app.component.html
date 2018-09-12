@@ -16,8 +16,16 @@
     <div class="row" style="margin:10px;">
         <button type="submit" class="btn btn-primary float-right" (click)="importContact()">Import Contact</button>
     </div>
+    <!-- <div class="row" style="margin:10px;">
+        <div style="background-color:tan">Import formatted contact:
+          <ol>
+              <li *ngFor="let contact of formattedContacts">{{contact.name}} | {{contact.phone}}</li>
+            </ol>
+        </div>
+      
+    </div> -->
     <div class="row" style="margin:10px;">
-        <span style="background-color:tan">Imported Contact: {{contacts | json}}</span>
+        <pre style="background-color:tan">Import Contacts:<br/> {{contacts | json}}</pre>
     </div>
   </div>
 </div>

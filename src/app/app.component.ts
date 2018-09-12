@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// import {CONTACTS} from "./constant";
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,22 @@ export class AppComponent implements OnInit{
   message = '';
   messageFromParent = '';
   contacts = [];
+  // formattedContacts = [];
 
   ngOnInit(): void {
+    // console.log(CONTACTS);
+    // const contacts = CONTACTS[0];
+    
+    // contacts.map((contact) => {
+    //   const givenName = contact.name.givenName;
+    //   console.log(givenName);
+    //   const phoneNumber = contact.phoneNumbers[0].value;
+    //   console.log(phoneNumber);
+    //   this.formattedContacts.push({name: givenName, phone: phoneNumber});
+    // });
+    // this.contacts = CONTACTS;
+
+
     if (window.addEventListener) {
       window.addEventListener('message', (event) => {
         const dataFromChildIframe = event.data;
@@ -21,6 +36,12 @@ export class AppComponent implements OnInit{
           this.messageFromParent = data;
         } else {
           this.contacts = data;
+          // const toBeFormatedContacts = data;
+          // toBeFormatedContacts.map((contact) => {
+          //   const givenName = contact.name.givenName;
+          //   const phoneNumber = contact.phoneNumbers[0].value;
+          //   this.formattedContacts.push({name: givenName, phone: phoneNumber});
+          // });
         }
       });
     }
