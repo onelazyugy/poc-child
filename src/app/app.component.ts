@@ -25,10 +25,31 @@ export class AppComponent implements OnInit{
     const localhostParentURL = 'http://localhost:4201/';
     // const parentURL = 'http://mfp.primericaonline.com:9080/priapp/index.html#/';
     // const parentURL = 'https://dev.primericaonline.com/priapp/#/turboApps';
+    // local mobile app
     const parentURL = 'file:///android_asset/www/index.html#/turboApps';
+    const data = {
+      action: 1,
+      data: this.message
+    };
     parent.postMessage(
     {
-      messageFromChild: this.message
+      messageFromChild: data
+    },
+    parentURL);
+  }
+
+  importContact = () => {
+    // const parentURL = 'http://mfp.primericaonline.com:9080/priapp/index.html#/';
+    // const parentURL = 'https://dev.primericaonline.com/priapp/#/turboApps';
+    // local mobile app
+    const parentURL = 'file:///android_asset/www/index.html#/turboApps';
+    const data = {
+      action: 2,
+      data: 'get contacts'
+    }
+    parent.postMessage(
+    {
+      messageFromChild: data
     },
     parentURL);
   }
