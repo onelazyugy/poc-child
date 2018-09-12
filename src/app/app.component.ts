@@ -9,13 +9,19 @@ export class AppComponent implements OnInit{
   title = 'child app';
   message = '';
   messageFromParent = '';
+  contacts = [];
 
   ngOnInit(): void {
     if (window.addEventListener) {
       window.addEventListener('message', (event) => {
         const dataFromChildIframe = event.data;
         console.log(dataFromChildIframe);
-        this.messageFromParent = dataFromChildIframe.messageFromParent;
+        const data = dataFromChildIframe.data;
+        if (dataFromChildIframe.action === 1) {
+          this.messageFromParent = data;
+        } else {
+          this.contacts = data;
+        }
       });
     }
   }
@@ -27,6 +33,7 @@ export class AppComponent implements OnInit{
     // const parentURL = 'https://dev.primericaonline.com/priapp/#/turboApps';
     // local mobile app
     const parentURL = 'file:///android_asset/www/index.html#/turboApps';
+    console.log('posting to parent...');
     const data = {
       action: 1,
       data: this.message
